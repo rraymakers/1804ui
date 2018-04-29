@@ -4,10 +4,6 @@
 ###########################################
 HOSTNAME='newserver'
 USERNAME='deploy'
-IPADDRESS='192.168.1.43/24'
-NETMASK='255.255.255.0'
-GATEWAY='192.168.1.1'
-NAMESERVER='8.8.8.8 8.8.4.4'
 #PACKAGES='htop nano sudo python-minimal openssl'
 
 ###########################################
@@ -58,10 +54,10 @@ network:
   ens18:
     dhcp4: no
     dhcp6: no
-    addresses: [$IPADDRESS]
-    gateway4: $GATEWAY
+    addresses: [192.168.1.33/24]
+    gateway4: 192.168.1.1
     nameservers:
-      addresses: [$NAMESERVER]
+      addresses: [8.8.8.8, 8.8.4.4]
 EOF
 
 ###########################################
