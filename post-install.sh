@@ -2,9 +2,9 @@
 ###########################################
 ################ Variables ################
 ###########################################
-HOSTNAME='1804'
+HOSTNAME='newserver'
 USERNAME='deploy'
-IPADDRESS='192.168.1.43'
+IPADDRESS='192.168.1.43/24'
 NETMASK='255.255.255.0'
 GATEWAY='192.168.1.1'
 NAMESERVER='8.8.8.8 8.8.4.4'
@@ -58,10 +58,10 @@ network:
   ens18:
     dhcp4: no
     dhcp6: no
-    addresses: [192.168.1.43/24]
-    gateway4: 192.168.1.1
+    addresses: [$IPADDRESS]
+    gateway4: $GATEWAY
     nameservers:
-      addresses: [192.168.1.1, 8.8.8.8, 8.8.4.4]
+      addresses: [$NAMESERVER]
 EOF
 
 ###########################################
