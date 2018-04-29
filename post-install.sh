@@ -1,30 +1,16 @@
 #!/bin/bash
-###########################################
 ################ Variables ################
-###########################################
-HOSTNAME='1804'
+HOSTNAME='newserver'
 USERNAME='deploy'
-IPADDRESS='192.168.1.43'
-NETMASK='255.255.255.0'
-GATEWAY='192.168.1.1'
-NAMESERVER='8.8.8.8 8.8.4.4'
-#PACKAGES='htop nano sudo python-minimal openssl'
 
-###########################################
 ################# Updates #################
-###########################################
 apt-get update && apt-get upgrade -y
 apt-get dist-upgrade
 
-###########################################
 ################## Apps ###################
-###########################################
-#apt-get install $PACKAGES -y
+#apt-get install packages -y
 
-###########################################
 ################## SSH ####################
-###########################################
-
 # Add SSH Key for default user
 #mkdir /home/$USERNAME/.ssh/
 #cat > /home/$USERNAME/.ssh/authorized_keys <<EOF
@@ -33,22 +19,12 @@ apt-get dist-upgrade
 #chmod 700 /home/$USERNAME/.ssh
 #chmod 600 /home/$USERNAME/.ssh/authorized_keys
 #chown -R $USERNAME:$USERNAME /home/$USERNAME/.ssh
-# Add SSH Key for root user
-#mkdir /root/.ssh/
-#cat > /root/.ssh/authorized_keys <<EOF
-#SSH-KEY HERE
-#EOF
-#chmod 700 /root/.ssh
-#chmod 600 /root/.ssh/authorized_keys
-#chown -R root:root /root/.ssh
 
 # Edit /etc/ssh/sshd_config
 #sed -i '/^PermitRootLogin/s/prohibit-password/yes/' /etc/ssh/sshd_config
 #sed -i -e 's/#PasswordAuthentication/PasswordAuthentication/g' /etc/ssh/sshd_config
 
-###########################################
 ################# Network #################
-###########################################
 mv /etc/netplan/01-netcfg.yaml /etc/netplan/01-netcfg.yaml.bk
 cat > /etc/netplan/01-netcfg.yaml <<EOF
 network:
@@ -58,7 +34,7 @@ network:
   ens18:
     dhcp4: no
     dhcp6: no
-    addresses: [192.168.1.43/24]
+    addresses: [192.168.1.9/24]
     gateway4: 192.168.1.1
     nameservers:
       addresses: [192.168.1.1, 8.8.8.8, 8.8.4.4]
