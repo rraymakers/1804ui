@@ -2,15 +2,19 @@
 ###########################################
 ################ Variables ################
 ###########################################
-HOSTNAME='newserver'
+HOSTNAME='1804'
 USERNAME='deploy'
+IPADDRESS='192.168.1.43'
+NETMASK='255.255.255.0'
+GATEWAY='192.168.1.1'
+NAMESERVER='8.8.8.8 8.8.4.4'
 #PACKAGES='htop nano sudo python-minimal openssl'
 
 ###########################################
 ################# Updates #################
 ###########################################
-#apt-get update && apt-get upgrade -y
-#apt-get dist-upgrade
+apt-get update && apt-get upgrade -y
+apt-get dist-upgrade
 
 ###########################################
 ################## Apps ###################
@@ -54,10 +58,10 @@ network:
   ens18:
     dhcp4: no
     dhcp6: no
-    addresses: [192.168.1.33/24]
+    addresses: [192.168.1.43/24]
     gateway4: 192.168.1.1
     nameservers:
-      addresses: [8.8.8.8, 8.8.4.4]
+      addresses: [192.168.1.1, 8.8.8.8, 8.8.4.4]
 EOF
 
 ###########################################
