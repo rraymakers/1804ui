@@ -4,11 +4,11 @@ HOSTNAME='newserver'
 USERNAME='deploy'
 
 ################# Updates #################
-#apt-get update && apt-get upgrade -y
-#apt-get dist-upgrade
+#apt update && apt-get upgrade -y
+#apt dist-upgrade
 
 ################## Apps ###################
-#apt-get install packages -y
+apt install qemu-guest-agent -y
 
 ################## SSH ####################
 # Add SSH Key for default user
