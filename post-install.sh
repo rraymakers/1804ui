@@ -1,6 +1,6 @@
 #!/bin/bash
 ################ Variables ################
-HOSTNAME='newserver'
+HOSTNAME='testserver'
 USERNAME='deploy'
 
 ################# Updates #################
@@ -33,18 +33,18 @@ network:
   ens18:
     dhcp4: no
     dhcp6: no
-    addresses: [192.168.1.60/24]
+    addresses: [192.168.1.9/24]
     gateway4: 192.168.1.1
     nameservers:
       addresses: [192.168.1.1, 8.8.8.8, 8.8.4.4]
 EOF
 
 ##PLEX
-apt install nfs-common -y
-mkdir /mnt/storage
-mkdir -p /var/lib/plexmediaserver/Library/Application\ Support/Plex\ Media\ Server
-adduser --system -group --no-create-home plex
-chown -R plex:plex /var/lib/plexmediaserver/
+#apt install nfs-common -y
+#mkdir /mnt/storage
+#mkdir -p /var/lib/plexmediaserver/Library/Application\ Support/Plex\ Media\ Server
+#adduser --system -group --no-create-home plex
+#chown -R plex:plex /var/lib/plexmediaserver/
 
 ###########################################
 ############# Change Hostname #############
