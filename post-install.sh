@@ -33,7 +33,7 @@ network:
   ens18:
     dhcp4: no
     dhcp6: no
-    addresses: [192.168.1.61/24]
+    addresses: [192.168.1.51/24]
     gateway4: 192.168.1.1
     nameservers:
       addresses: [192.168.1.1, 8.8.8.8, 8.8.4.4]
