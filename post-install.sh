@@ -1,6 +1,6 @@
 #!/bin/bash
 ################ Variables ################
-HOSTNAME='emby-1804'
+HOSTNAME='emby-1804-4gb'
 USERNAME='deploy'
 
 ################# Updates #################
@@ -8,7 +8,7 @@ USERNAME='deploy'
 #apt dist-upgrade
 
 ################## Apps ###################
-apt install qemu-guest-agent -y
+apt install qemu-guest-agent nfs-common -y
 
 ################## SSH ####################
 # Add SSH Key for default user
@@ -33,7 +33,7 @@ network:
   ens18:
     dhcp4: no
     dhcp6: no
-    addresses: [192.168.1.70/24]
+    addresses: [192.168.1.71/24]
     gateway4: 192.168.1.1
     nameservers:
       addresses: [192.168.1.1, 8.8.8.8, 8.8.4.4]
@@ -41,7 +41,7 @@ EOF
 
 ##PLEX
 #apt install nfs-common -y
-#mkdir /mnt/storage
+mkdir /mnt/storage
 #mkdir -p /var/lib/plexmediaserver/Library/Application\ Support/Plex\ Media\ Server
 #adduser --system -group --no-create-home plex
 #chown -R plex:plex /var/lib/plexmediaserver/
